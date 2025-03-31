@@ -2,8 +2,11 @@ import cv2
 import time
 import numpy as np
 
-video_path = "C:\\Users\\harsh\\Downloads\\PingPongVid.mp4"
+video_path = "PingPongVid.mp4"
 video = cv2.VideoCapture(video_path)
+window_name = "Ball Detection"
+# cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
+# cv2.setWindowProperty(window_name, cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
 paused = False
 
 #color thresholds for ball detection
@@ -72,7 +75,7 @@ while True:
     processed = detect_ball(vid, previous)
     previous = vid
 
-    cv2.imshow("Ball Detection", vid)
+    cv2.imshow(window_name, vid)
     k = cv2.waitKey(1) & 0xFF
     #esc
     if k == 27:
